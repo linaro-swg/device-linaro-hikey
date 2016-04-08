@@ -63,8 +63,12 @@ PRODUCT_PACKAGES += gralloc.hikey
 
 
 PRODUCT_PACKAGES += libteec \
-					tee_helloworld \
-				  tee-supplicant
+					tee-supplicant \
+					tee_helloworld
+
+# OP TEE Hello world TA
+PRODUCT_PACKAGES += 8aaaf200-2450-11e4-abe20002a5d5c51b.ta
+
 
 # Set zygote config
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.zygote=zygote64_32
