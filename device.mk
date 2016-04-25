@@ -69,7 +69,9 @@ PRODUCT_PACKAGES += gralloc.hikey
 PRODUCT_PACKAGES += libteec \
 					tee-supplicant \
 					tee_helloworld \
-					xtest
+					xtest \
+					libwvclient \
+					wvclient
 
 # OP TEE Hello world TA
 PRODUCT_PACKAGES += 8aaaf200-2450-11e4-abe20002a5d5c51b.ta
@@ -82,6 +84,7 @@ PRODUCT_PACKAGES += d17f73a0-36ef-11e1-984a0002a5d5c51b.ta
 PRODUCT_PACKAGES += e6a33ed4-562b-463a-bb7eff5e15a493c8.ta
 PRODUCT_PACKAGES += b689f2a7-8adf-477a-9f9932e90c0ad0a2.ta
 PRODUCT_PACKAGES += f157cda0-550c-11e5-a6fa0002a5d5c51b.ta
+PRODUCT_PACKAGES += 706f6574-7765-6469-77656e6942656665.ta
 
 # Set zygote config
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.zygote=zygote64_32
