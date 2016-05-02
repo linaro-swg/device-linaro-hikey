@@ -112,3 +112,7 @@ PRODUCT_COPY_FILES += \
 
 # Copy media codecs config file
 PRODUCT_COPY_FILES += device/linaro/hikey/etc/media_codecs.xml:system/etc/media_codecs.xml
+
+# Set so that OP-TEE clients can find the installed dev-kit, which
+# depends on platform and word-size.
+TA_DEV_KIT_DIR := optee/optee_os/out/arm-plat-hikey/export-ta_arm64
