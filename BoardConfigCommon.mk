@@ -61,3 +61,14 @@ ifeq ($(TARGET_SYSTEMIMAGES_USE_SQUASHFS), true)
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := squashfs
 endif
 endif
+
+ifeq ($(TARGET_BUILD_KERNEL), true)
+# Kernel Config
+KERNEL_CONFIG := hikey_defconfig
+ANDROID_64 := true
+# Kernel Source and Device Tree
+TARGET_KERNEL_SOURCE ?= kernel/linaro/hisilicon
+DEVICE_TREES := hi6220-hikey:hi6220-hikey.dtb
+BUILD_KERNEL_MODULES := false
+KERNEL_TARGET := Image-dtb
+endif
