@@ -45,11 +45,11 @@ if [ ! -d $OUT_IMGDIR ]; then
 fi
 echo "android out dir:$OUT_IMGDIR"
 
-python ${INSTALLER_DIR}/hisi-idt.py --img1=${INSTALLER_DIR}/l-loader.bin -d ${DEVICE_PORT}
+sudo python ${INSTALLER_DIR}/hisi-idt.py --img1=${INSTALLER_DIR}/l-loader.bin -d ${DEVICE_PORT}
 fastboot flash ptable ${INSTALLER_DIR}/${PTABLE}
 fastboot flash fastboot ${INSTALLER_DIR}/fip.bin
 fastboot flash nvme ${INSTALLER_DIR}/nvme.img
-fastboot flash boot ${OUT_IMGDIR}/boot_fat.uefi.img
+fastboot flash boot ${OUT_IMGDIR}/boot.img
 fastboot flash system ${OUT_IMGDIR}/system.img
 fastboot flash cache ${OUT_IMGDIR}/cache.img
 fastboot flash userdata ${OUT_IMGDIR}/userdata.img
