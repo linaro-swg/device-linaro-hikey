@@ -66,6 +66,12 @@ PRODUCT_PACKAGES += libion
 PRODUCT_PACKAGES += gralloc.hikey
 
 
+OPTEE_PLATFORM ?= hikey
+OPTEE_CFG_ARM64_CORE ?= y
+OPTEE_TA_TARGETS ?= ta_arm64
+OPTEE_OS_DIR ?= optee/optee_os
+BUILD_OPTEE_MK := $(OPTEE_OS_DIR)/mk/aosp_optee.mk
+
 PRODUCT_PACKAGES += libteec \
 					tee-supplicant \
 					tee_helloworld \
