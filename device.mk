@@ -49,8 +49,12 @@ PRODUCT_PROPERTY_OVERRIDES += wifi.interface=wlan0 \
 # Build and run only ART
 PRODUCT_RUNTIMES := runtime_libart_default
 
-# Build BT a2dp audio HAL
-PRODUCT_PACKAGES += audio.a2dp.default
+# Build HiKey HDMI, bluetooth a2dp and usb audio HALs
+PRODUCT_PACKAGES += audio.primary.hikey \
+		    audio.a2dp.default \
+		    audio.usb.default \
+		    audio.r_submix.default \
+		    tinyplay
 
 # Include USB speed switch App
 PRODUCT_PACKAGES += UsbSpeedSwitch
@@ -91,8 +95,9 @@ PRODUCT_COPY_FILES += system/core/rootdir/init.zygote64_32.rc:root/init.zygote64
 
 PRODUCT_PACKAGES += libGLES_android
 
-PRODUCT_PACKAGES += TIInit_11.8.32.bts \
-                    wl18xx-fw-4.bin
+PRODUCT_PACKAGES +=	TIInit_11.8.32.bts \
+			wl18xx-fw-4.bin \
+			wl18xx-conf.bin
 
 # Copy hardware config file(s)
 PRODUCT_COPY_FILES +=  \
@@ -100,7 +105,8 @@ PRODUCT_COPY_FILES +=  \
         frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml \
         frameworks/native/data/etc/android.software.app_widgets.xml:system/etc/permissions/android.software.app_widgets.xml \
         frameworks/native/data/etc/android.software.backup.xml:system/etc/permissions/android.software.backup.xml \
-        frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml
+        frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+        frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml
 
 # Include vendor binaries
 $(call inherit-product-if-exists, vendor/linaro/hikey/device-vendor.mk)
@@ -117,8 +123,11 @@ PRODUCT_COPY_FILES += \
         device/linaro/hikey/audio/audio_policy.conf:system/etc/audio_policy.conf
 
 # Copy media codecs config file
-PRODUCT_COPY_FILES += device/linaro/hikey/etc/media_codecs.xml:system/etc/media_codecs.xml
 
 # Set so that OP-TEE clients can find the installed dev-kit, which
 # depends on platform and word-size.
 TA_DEV_KIT_DIR := optee/optee_os/out/arm-plat-hikey/export-ta_arm64
+
+PRODUCT_COPY_FILES += \
+        device/linaro/hikey/etc/media_codecs.xml:system/etc/media_codecs.xml \
+        frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml
