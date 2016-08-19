@@ -18,7 +18,7 @@
 $(call inherit-product-if-exists, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-LOCAL_KERNEL := $(ANDROID_PRODUCT_OUT)/kernel_obj/arch/arm64/boot/Image
+LOCAL_KERNEL := $(ANDROID_PRODUCT_OUT)/kernel_obj/arch/arm64/boot/Image-dtb
 LOCAL_DTB := $(ANDROID_PRODUCT_OUT)/kernel_obj/arch/arm64/boot/dts/hisilicon/hi6220-hikey.dtb
 LOCAL_FSTAB := fstab.hikey
 else
@@ -98,6 +98,9 @@ PRODUCT_PACKAGES += libGLES_android
 PRODUCT_PACKAGES +=	TIInit_11.8.32.bts \
 			wl18xx-fw-4.bin \
 			wl18xx-conf.bin
+
+# PowerHAL
+PRODUCT_PACKAGES += power.hikey
 
 # Copy hardware config file(s)
 PRODUCT_COPY_FILES +=  \
