@@ -1,3 +1,5 @@
 /dev/hci_tty     0666 root root
 /dev/ttyAMA1     0660 bluetooth bluetooth
 /dev/mali        0666 system graphics
+/dev/tee0        0660   system     drmrpc
+/dev/teepriv0    0660   system     drmrpc
