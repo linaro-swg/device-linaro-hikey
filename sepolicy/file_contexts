@@ -4,3 +4,6 @@
 /dev/dri/card0         u:object_r:gpu_device:s0
 /dev/hci_tty           u:object_r:hci_attach_dev:s0
 /system/bin/uim        u:object_r:hci_attach_exec:s0
+/dev/tee[0-9]*              u:object_r:tee_device:s0
+/dev/teepriv[0-9]*          u:object_r:tee_device:s0
+/system/bin/tee-supplicant  u:object_r:tee_exec:s0
