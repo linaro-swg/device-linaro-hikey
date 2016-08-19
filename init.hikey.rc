@@ -11,6 +11,7 @@ on init
     # (if randomization is enabled the AEM-JIT will have a lower cache hit rate)
     write /proc/sys/kernel/randomize_va_space 0
 
+
 on fs
     mount_all /fstab.hikey
     setprop ro.crypto.fuse_sdcard false
@@ -87,9 +88,10 @@ service uim /system/bin/uim
     group bluetooth net_bt_admin system net_bt_stack
     oneshot
 
-service tee-supplicant /system/bin/tee-supplicant
+service tee_supplicant /system/bin/tee-supplicant
     class main
     user root
+    group shell
     oneshot
 
 service wpa_supplicant /system/bin/wpa_supplicant \

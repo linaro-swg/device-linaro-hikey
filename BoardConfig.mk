@@ -59,6 +59,11 @@ ENABLE_CPUSETS := true
 
 BOARD_SEPOLICY_DIRS := device/linaro/hikey/sepolicy
 
+BOARD_SEPOLICY_UNION += \
+    file_contexts \
+    sepolicy.te
+
+
 ifeq ($(HOST_OS), linux)
 ifeq ($(TARGET_SYSTEMIMAGES_USE_SQUASHFS), true)
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := squashfs
