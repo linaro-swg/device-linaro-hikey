@@ -70,8 +70,7 @@ PRODUCT_PACKAGES += libteec \
 					tee-supplicant \
 					tee_helloworld \
 					xtest \
-					libwvclient \
-					wvclient
+					liboemcrypto
 
 # OP TEE Hello world TA
 PRODUCT_PACKAGES += 8aaaf200-2450-11e4-abe20002a5d5c51b.ta
