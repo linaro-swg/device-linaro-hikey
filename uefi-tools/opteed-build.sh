@@ -29,7 +29,9 @@ function build_platform
 		fi
 	fi
 	TOS_PLATFORM_FLAVOR="`$TOOLS_DIR/parse-platforms.py $PLATFORM_CONFIG -p $1 get -o tos_platform_flavor`"
-
+	if [ X"$TOS_PLATFORM_FLAVOR" = X"" ]; then
+		TOS_PLATFORM_FLAVOR=$TOS_PLATFORM
+	fi
 	#
 	# Read platform configuration
 	#

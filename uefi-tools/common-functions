@@ -59,7 +59,14 @@ function set_cross_compile
                     fi
                 ;;
 		ARM)
-		    TEMP_CROSS_COMPILE=arm-linux-gnueabihf- ;;
+            if [ X"$CROSS_COMPILE_32" != X"" ]; then
+                TEMP_CROSS_COMPILE="$CROSS_COMPILE_32"
+            elif [ X"$CROSS_COMPILE" != X"" ]; then
+                TEMP_CROSS_COMPILE="$CROSS_COMPILE"
+            else
+                TEMP_CROSS_COMPILE=arm-linux-gnueabihf-
+            fi
+            ;;
 		IA32)
 		    TEMP_CROSS_COMPILE=x86_64-linux-gnu-
 		    for family in 6 5 4 3; do
