@@ -126,4 +126,14 @@ service bugreport /system/bin/dumpstate -d -p -B -z \
     -o /data/user_de/0/com.android.shell/files/bugreports/bugreport
     class main
     disabled
+
+on post-fs-data
+    # create for OP-TEE test
+    mkdir /data/tee 0777 shell shell
+    mkdir /data/tee/optee_armtz 0777 shell shell
+    restorecon_recursive /data/tee
+
+service tee-supplicant /system/bin/tee-supplicant
+    class main
+    user root
     oneshot
