@@ -438,6 +438,7 @@ static int alloc_device_alloc(alloc_device_t *dev, int w, int h, int format, int
 
 	size_t size;
 	size_t stride;
+	int bpp = 1;
 
 	if (format == HAL_PIXEL_FORMAT_YCrCb_420_SP || format == HAL_PIXEL_FORMAT_YV12
 	        /* HAL_PIXEL_FORMAT_YCbCr_420_SP, HAL_PIXEL_FORMAT_YCbCr_420_P, HAL_PIXEL_FORMAT_YCbCr_422_I are not defined in Android.
@@ -489,7 +490,6 @@ static int alloc_device_alloc(alloc_device_t *dev, int w, int h, int format, int
 	}
 	else
 	{
-		int bpp = 0;
 
 		switch (format)
 		{
@@ -590,7 +590,7 @@ static int alloc_device_alloc(alloc_device_t *dev, int w, int h, int format, int
 	hnd->height = h;
 	hnd->format = format;
 	hnd->stride = stride;
-
+	hnd->byte_stride = GRALLOC_ALIGN(w*bpp,64);
 	*pStride = stride;
 	return 0;
 }
