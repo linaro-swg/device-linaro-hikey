@@ -31,10 +31,7 @@ LOCAL_C_INCLUDES += \
         external/tinyalsa/include \
         external/expat/lib \
         system/media/audio_utils/include \
-
-LOCAL_HEADER_LIBRARIES := \
-    android.hardware.audio.common.legacy@2.0 \
-    android.hardware.audio.effect.legacy@2.0
+        system/media/audio_effects/include
 
 include $(BUILD_SHARED_LIBRARY)
 
