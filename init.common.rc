@@ -61,6 +61,11 @@ on post-fs-data
     # Set SELinux security contexts for files used by lava.
     restorecon_recursive /data/local/tmp/lava
 
+on zygote-start
+    mkdir /data/vendor/wifi 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
+
 on property:sys.boot_completed=1
     # update cpuset now that processors are up
     # Foreground should contain most cores (7 is reserved for top-app)
