@@ -15,10 +15,12 @@ allow tee tee:tcp_socket { create connect read write getopt setopt };
 allow tee tee:udp_socket { create connect read write getopt getattr };
 allow tee tee:capability { net_raw };
 allow tee fwmarkd_socket:sock_file { write };
-allow tee netd:unix_stream_socket { connectto };
 allow tee port:tcp_socket { name_connect };
 
 # Rules on netd domain for optee xtest 200x tests
 allow netd tee:tcp_socket { read write getopt setopt };
 allow netd tee:udp_socket { read write getopt setopt };
 allow netd tee:fd { use };
+
+typeattribute tee socket_between_core_and_vendor_violators;
+typeattribute tee_data_file core_data_file_type;
