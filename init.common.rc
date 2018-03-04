@@ -107,7 +107,6 @@ service uim /vendor/bin/uim
     oneshot
 
 service wpa_supplicant /system/vendor/bin/hw/wpa_supplicant \
-     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
      -g@android:wpa_wlan0
      interface android.hardware.wifi.supplicant@1.0::ISupplicant default
      interface android.hardware.wifi.supplicant@1.1::ISupplicant default
