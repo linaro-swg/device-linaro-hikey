@@ -87,9 +87,13 @@ PRODUCT_PACKAGES += \
 
 # Keymaster HAL
 PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-impl \
-    android.hardware.keymaster@3.0-service
+    android.hardware.keymaster@3.0-service.optee \
+    VtsHalKeymasterV3_0TargetTest
 
+# Gatekeeper HAL
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0-service.optee \
+    VtsHalGatekeeperV1_0TargetTest
 
 # Sensor HAL
 ifneq ($(TARGET_SENSOR_MEZZANINE),)

@@ -7,3 +7,6 @@ allow init tmpfs:lnk_file create;
 allow init configfs:lnk_file create;
 
 dontaudit init kernel:system module_request;
+
+allow init vendor_file:file { execute };
+allow init su:process { transition };
