@@ -4,11 +4,11 @@
 /dev/ttyFIQ0           u:object_r:console_device:s0
 
 # optee files
-/system/bin/tee-supplicant  u:object_r:tee_exec:s0
-/system/bin/xtest  u:object_r:tee_exec:s0
+/vendor/bin/tee-supplicant  u:object_r:tee_exec:s0
+/vendor/bin/xtest  u:object_r:tee_exec:s0
 /dev/teepriv[0-9]*     u:object_r:tee_device:s0
 /dev/tee[0-9]*         u:object_r:tee_device:s0
-/data/tee(/.*)?        u:object_r:tee_data_file:s0
+/data/vendor/tee(/.*)?        u:object_r:tee_data_file:s0
 
 /dev/mali              u:object_r:gpu_device:s0
 /dev/mali0             u:object_r:gpu_device:s0

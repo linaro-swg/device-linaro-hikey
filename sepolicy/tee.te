@@ -4,11 +4,13 @@ allow shell tee_exec:file { getattr execute read open execute_no_trans };
 allow shell tee_data_file:file { create write open getattr unlink read };
 allow shell tee_data_file:dir { write add_name remove_name rename search };
 allow shell tee_data_file:chr_file { read write open ioctl };
+
 allow tee console_device:chr_file {  getattr read write ioctl };
 allow tee shell:fd { use };
-
+allow tee system_data_file:dir { getattr };
 allow tee tee_data_file:dir { create rmdir rename };
-allow tee system_data_file:dir { write remove_name };
+allow tee vendor_data_file:dir { write add_name remove_name rmdir };
+allow tee vendor_data_file:file { create read write open unlink };
 
 # For xtest 200x tests
 allow tee tee:tcp_socket { create connect read write getopt setopt };
@@ -22,5 +24,6 @@ allow netd tee:tcp_socket { read write getopt setopt };
 allow netd tee:udp_socket { read write getopt setopt };
 allow netd tee:fd { use };
 
+allow tee netd:unix_stream_socket { connectto };
+
 typeattribute tee socket_between_core_and_vendor_violators;
-typeattribute tee_data_file core_data_file_type;
