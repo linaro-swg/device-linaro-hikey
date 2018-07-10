@@ -9,7 +9,8 @@
 
 . "$TOOLS_DIR"/common-functions
 
-export CFG_TEE_CORE_LOG_LEVEL=2  # 0=none 1=err 2=info 3=debug 4=flow
+export CFG_TEE_CORE_LOG_LEVEL=3  # 0=none 1=err 2=info 3=debug 4=flow
+export CFG_TEE_TA_LOG_LEVEL=3  # 0=none 1=err 2=info 3=debug 4=flow
 
 function usage
 {
@@ -89,6 +90,7 @@ function build_platform
 	echo "PLATFORM=$PLATFORM"
 	echo "PLATFORM_FLAVOR=$PLATFORM_FLAVOR"
 	echo "CFG_TEE_CORE_LOG_LEVEL=$CFG_TEE_CORE_LOG_LEVEL"
+	echo "CFG_TEE_TA_LOG_LEVEL=$CFG_TEE_TA_LOG_LEVEL"
 
 	#
 	# Build OP-TEE
