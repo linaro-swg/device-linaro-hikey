@@ -67,7 +67,7 @@ ifeq ($(TARGET_BUILD_KERNEL), true)
 KERNEL_CONFIG := hikey_defconfig
 ANDROID_64 := true
 # Kernel Source and Device Tree
-TARGET_KERNEL_SOURCE ?= kernel/linaro/hisilicon
+TARGET_KERNEL_SOURCE ?= kernel/linaro/hisilicon-4.14
 DEVICE_TREES := hi6220-hikey:hi6220-hikey.dtb
 BUILD_KERNEL_MODULES := false
 KERNEL_TARGET := Image-dtb
