@@ -27,7 +27,7 @@ on init
     start watchdogd
 
 on fs
-    mount_all /fstab.${ro.hardware}
+    mount_all /vendor/etc/fstab.${ro.hardware}
     setprop ro.crypto.fuse_sdcard false
 
 on post-fs
@@ -120,3 +120,9 @@ service watchdogd /sbin/watchdogd 10 20
     class core
     oneshot
     seclabel u:r:watchdogd:s0
+
+service bugreport /system/bin/dumpstate -d -p -B -z \
+    -o /data/user_de/0/com.android.shell/files/bugreports/bugreport
+    class main
+    disabled
+    oneshot

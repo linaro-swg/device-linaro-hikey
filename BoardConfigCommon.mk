@@ -11,11 +11,20 @@ TARGET_2ND_CPU_ABI2 := armeabi
 
 TARGET_USES_64_BIT_BINDER := true
 
-WITH_DEXPREOPT ?= true
 USE_OPENGL_RENDERER := true
 
 # BT configs
 BOARD_HAVE_BLUETOOTH := true
+
+# HACK! hikey64_only doesn't build w/ VNDK_VERSION=current
+# This is due to software codecs being required but only
+# building for 32bit. Remove the conditional once 64bit
+# soft-codecs work
+ifeq ($(filter hikey64, $(TARGET_DEVICE)),)
+# enable Treble
+PRODUCT_FULL_TREBLE_OVERRIDE := true
+BOARD_VNDK_VERSION := current
+endif
 
 # generic wifi
 WPA_SUPPLICANT_VERSION := VER_0_8_X
@@ -33,7 +42,6 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_USE_PAN_DISPLAY := true
 
 TARGET_USES_HWC2 := true
-SF_START_GRAPHICS_ALLOCATOR_SERVICE := true
 
 TARGET_AUX_OS_VARIANT_LIST := neonkey argonkey
 
