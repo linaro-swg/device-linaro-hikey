@@ -1,0 +1,1 @@
+allow domain vendor_configs_file:file { map };
