@@ -2,4 +2,15 @@
 # once cpufreq functionality is hidden behind a HAL.
 allow system_server sysfs_devices_system_cpu:file w_file_perms;
 
+# Explicitly allow system_server to (m)map data files
+# 383471c267b6792f1625f8f771d8e0c0b9090300
+allow system_server {
+  system_app_data_file
+  bluetooth_data_file
+  nfc_data_file
+  radio_data_file
+  shell_data_file
+  app_data_file
+}:file { map };
+
 dontaudit system_server self:capability sys_module;
